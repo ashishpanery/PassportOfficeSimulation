@@ -1,0 +1,64 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- <bean id="GFIFOApplicationProcessorImpl" class="com.cleartax.workflow.impl.GFIFOApplicationProcessorImpl">
+		 <constructor-arg>
+	        <list>
+	            <ref bean="documentVerificationWorkflow" />
+	            <ref bean="policeVerification" />  
+	            <ref bean="bioMetricVerification" />                 
+	        </list>
+    	</constructor-arg>
+	</bean> -->
+	
+	<bean id="documentVerificationWorkflow" class="com.cleartax.workflow.impl.DocumentVerificationWorkflow">
+		 <constructor-arg>
+	        <list>
+	            <ref bean="collectDocumentActivity" />
+	            <ref bean="collectIdProofActivity" />  
+	            <ref bean="collectPhotoIdProofActivity" />                 
+	        </list>
+    	</constructor-arg>
+	</bean>
+	
+	<bean id="policeVerification" class="com.cleartax.workflow.impl.PoliceVerificationWorkflow">
+		 <constructor-arg>
+	        <list>
+	            <ref bean="policeVerificationActivity" />
+	        </list>
+    	</constructor-arg>
+	</bean>
+	
+	<bean id="bioMetricVerification" class="com.cleartax.workflow.impl.BioMetricVerification">
+		 <constructor-arg>
+	        <list>
+	            <ref bean="bioMetricCollectionActivity" />
+	        </list>
+    	</constructor-arg>
+	</bean>
+	
+	
+	<bean id="collectDocumentActivity" class="com.cleartax.activity.CollectDocumentActivity">
+		
+	</bean>
+	
+	<bean id="collectIdProofActivity" class="com.cleartax.activity.CollectIdProofActivity">
+		
+	</bean>
+	
+	<bean id="collectPhotoIdProofActivity" class="com.cleartax.activity.CollectPhotoIdProofActivity">
+		
+	</bean>
+	
+	<bean id="policeVerificationActivity" class="com.cleartax.activity.PoliceVerificationActivity">
+		
+	</bean>
+	
+	<bean id="bioMetricCollectionActivity" class="com.cleartax.activity.BioMetricCollectionActivity">
+		
+	</bean>
+	
+	
+</beans>
